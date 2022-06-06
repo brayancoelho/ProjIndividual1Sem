@@ -115,6 +115,7 @@
     var m3gtr = 10+10+7.6
     var carros = [punto, caymans, carreragt, m3gtr]
 
+
     
     
 
@@ -125,12 +126,14 @@
    
 
     function simular() {
+        var carro1v = ((carros[carro1.value] * 100)/carros[carro2.value]) - 100
+        var carro2v = ((carros[carro2.value] * 100)/carros[carro1.value]) - 100
         if (carro1.value == '' || carro2.value == '') {
         alert ('Por favor selecione os dois carros')
         valid = false
     } else if (carros[carro1.value] > carros[carro2.value]){
         Swal.fire({
-  title: 'O Carro 1 Venceria!!!',
+  title: `O Carro 1 Venceria por ter uma vantagem de ${carro1v}% sobre o carro 2`,
   showClass: {
     popup: 'animate__animated animate__fadeInDown'
   },
@@ -140,7 +143,7 @@
 })
     } else if (carros[carro2.value] > carros[carro1.value]){
         Swal.fire({
-  title: 'O Carro 2 Venceria!!!',
+  title: `O Carro 2 Venceria por ter uma vantagem de ${carro2v}% sobre o carro 1`,
   showClass: {
     popup: 'animate__animated animate__fadeInDown'
   },
