@@ -198,3 +198,14 @@ select {
   font-family: 'Quicksand';
   font-weight: 700;
 }
+
+.bannerbox select {
+  height: 30px;
+  font-size: 20px;
+}
+
+.bannerbox button {
+  height: 30px;
+  font-size: 20px;
+}
+

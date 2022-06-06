@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Dashboards</title>
+    <title>MW Lobby | Simulador</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dashboards.css">
@@ -54,11 +54,11 @@
     </div>
 
     <div id="banner2" class="banner" style="background-color: #45433b;">
-        
+
         <div class="container">
             <p>
             <div class="bannerboxtxt1" id="div_msg">Simule uma Corrida Escolhendo Dois Carros Abaixo</div>
-            <div class="bannerbox"></div> 
+            <div class="bannerbox"></div>
             </p>
         </div>
     </div>
@@ -68,9 +68,9 @@
         <div class="container">
             <br>
             <p>
-            <div class="bannerbox">
+            <div class="bannerbox" id="bboxjogo">
                 <select id="carro1">
-                    <option value= "" selected disabled>-- Escolha o Carro 1 --</option>
+                    <option value="" selected disabled>-- Escolha o Carro 1 --</option>
                     <option value="0">Punto</option>
                     <option value="1">Cayman S</option>
                     <option value="2">Carrera GT</option>
@@ -111,58 +111,58 @@
     var valid = true
     var punto = 1 + 2 + 1
     var caymans = 5 + 4 + 6
-    var carreragt = 7+7+9
-    var m3gtr = 10+10+7.6
+    var carreragt = 7 + 7 + 9
+    var m3gtr = 10 + 10 + 7.6
     var carros = [punto, caymans, carreragt, m3gtr]
 
 
-    
-    
+
+
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     verificar_autenticacao();
 
-   
+
 
     function simular() {
-        var carro1v = ((carros[carro1.value] * 100)/carros[carro2.value]) - 100
-        var carro2v = ((carros[carro2.value] * 100)/carros[carro1.value]) - 100
+        var carro1v = ((carros[carro1.value] * 100) / carros[carro2.value]) - 100
+        var carro2v = ((carros[carro2.value] * 100) / carros[carro1.value]) - 100
         if (carro1.value == '' || carro2.value == '') {
-        alert ('Por favor selecione os dois carros')
-        valid = false
-    } else if (carros[carro1.value] > carros[carro2.value]){
-        Swal.fire({
-  title: `O Carro 1 Venceria por ter uma vantagem de ${carro1v}% sobre o carro 2`,
-  showClass: {
-    popup: 'animate__animated animate__fadeInDown'
-  },
-  hideClass: {
-    popup: 'animate__animated animate__fadeOutUp'
-  }
-})
-    } else if (carros[carro2.value] > carros[carro1.value]){
-        Swal.fire({
-  title: `O Carro 2 Venceria por ter uma vantagem de ${carro2v}% sobre o carro 1`,
-  showClass: {
-    popup: 'animate__animated animate__fadeInDown'
-  },
-  hideClass: {
-    popup: 'animate__animated animate__fadeOutUp'
-  }
-})
-        
-    } else if (carros[carro2.value] == carros[carro1.value]){
-        Swal.fire({
-  title: 'Haveria um Empate!!!',
-  showClass: {
-    popup: 'animate__animated animate__fadeInDown'
-  },
-  hideClass: {
-    popup: 'animate__animated animate__fadeOutUp'
-  }
-})
-    } 
+            alert('Por favor selecione os dois carros')
+            valid = false
+        } else if (carros[carro1.value] > carros[carro2.value]) {
+            Swal.fire({
+                title: `O Carro 1 Venceria por ter uma vantagem de ${carro1v.toFixed(2)}% em seus atributos sobre o carro 2`,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        } else if (carros[carro2.value] > carros[carro1.value]) {
+            Swal.fire({
+                title: `O Carro 2 Venceria por ter uma vantagem de ${carro2v.toFixed(2)}% em seus atributos sobre o carro 1`,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+
+        } else if (carros[carro2.value] == carros[carro1.value]) {
+            Swal.fire({
+                title: 'Haveria um Empate!!!',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        }
 
     }  
 </script>
